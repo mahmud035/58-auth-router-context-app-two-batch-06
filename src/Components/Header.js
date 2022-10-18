@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Context/UserContext';
 
 const Header = () => {
@@ -20,7 +20,11 @@ const Header = () => {
         <NavLink to="/register" className="btn btn-ghost normal-case text-xl">
           Register
         </NavLink>
-        {user?.displayName && <p>Hello, {user.displayName}</p>}
+        {user?.email && <p>Hello, {user.email}</p>}
+
+        <Link to="/login" className="ml-auto">
+          <button className="btn btn-sm btn-ghost ">Sign Out</button>
+        </Link>
       </div>
     </div>
   );
