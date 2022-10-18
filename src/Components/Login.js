@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/UserContext';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +18,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate('/');
       })
       .catch((error) => {
         console.error('error', error);
@@ -63,7 +65,8 @@ const Login = () => {
                   </Link>
                 </label>
               </div>
-              <div className="form-control mt-6">
+
+              <div className="form-control mt-6 ">
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>

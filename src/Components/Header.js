@@ -24,6 +24,9 @@ const Header = () => {
         <NavLink to="/home" className="btn btn-ghost normal-case text-xl">
           Home
         </NavLink>
+        <NavLink to="/orders" className="btn btn-ghost normal-case text-xl">
+          Orders
+        </NavLink>
 
         {user?.email && <p>Hello, {user.email}</p>}
 
@@ -43,6 +46,7 @@ const Header = () => {
               Login
             </NavLink>
           )}
+
           <NavLink
             to="/register"
             className="btn btn-ghost normal-case text-xl "
