@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div>
       <div className="navbar bg-primary text-primary-content">
-        <NavLink className="btn btn-ghost normal-case text-xl">
+        <NavLink to="/" className="btn btn-ghost normal-case text-xl">
           Awesome Auth
         </NavLink>
         <NavLink to="/home" className="btn btn-ghost normal-case text-xl">
