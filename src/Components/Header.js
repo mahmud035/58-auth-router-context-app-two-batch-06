@@ -27,8 +27,9 @@ const Header = () => {
 
         {user?.email && <p>Hello, {user.email}</p>}
 
+        {/* Toggle Login and LogOut button */}
         <div className="ml-auto">
-          {user ? (
+          {user?.email ? (
             <Link to="/login">
               <button
                 onClick={handleSignOut}

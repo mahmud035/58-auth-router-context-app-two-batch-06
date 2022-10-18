@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/UserContext';
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, signInWithGoogle } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +24,17 @@ const Register = () => {
       });
 
     form.reset();
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error('error', error);
+      });
   };
 
   return (
@@ -80,6 +91,31 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
+
+            <div className="flex flex-col gap-4 pb-8 w-full ">
+              <div className="divider xm:divider-horizontal">OR</div>
+              <div className="grid flex-grow h-12 card rounded-box place-items-center">
+                <Link>
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="btn btn-outline btn-success normal-case"
+                  >
+                    Sign Up with Google
+                  </button>
+                </Link>
+              </div>
+
+              <div className="grid flex-grow h-12 card rounded-box place-items-center ">
+                <Link>
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="btn btn-outline btn-accent normal-case"
+                  >
+                    Sign Up with Github
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
