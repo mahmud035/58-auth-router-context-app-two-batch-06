@@ -4,6 +4,7 @@ import { AuthContext } from '../Context/UserContext';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -15,6 +16,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        console.log(user);
       })
       .catch((error) => {
         console.error('error', error);
