@@ -3,7 +3,17 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Context/UserContext';
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        console.log('logOut successfully');
+      })
+      .catch((error) => {
+        console.error('error', error);
+      });
+  };
 
   return (
     <div>
@@ -23,7 +33,9 @@ const Header = () => {
         {user?.email && <p>Hello, {user.email}</p>}
 
         <Link to="/login" className="ml-auto">
-          <button className="btn btn-sm btn-ghost ">Sign Out</button>
+          <button onClick={handleSignOut} className="btn btn-sm btn-ghost ">
+            Sign Out
+          </button>
         </Link>
       </div>
     </div>
